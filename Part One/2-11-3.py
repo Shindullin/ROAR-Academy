@@ -5,7 +5,7 @@ import time
 
 start_time= time.time()
 path = os.path.dirname(os.path.abspath(__file__))
-file_path = os.path.join(path, 'Sense_and_Sensibility-by-Jane-Austen.pdf')
+file_path = os.path.join(path, 'Sense-and-Sensibility-by-Jane-Austen.pdf')
 file_handle = open(file_path, 'rb')
 pdfReader = PyPDF2.PdfReader(file_handle) 
 
@@ -13,7 +13,7 @@ frequency_table = {}
 
 for page_num in range(len(pdfReader.pages)):
     page_object=pdfReader.pages(page_num)
-    page_text = page_object.extrace_text()
+    page_text = page_object.extract_text()
     words=page_text.split("\n")
     placeholder_char=""
     for extracted_string in words:
