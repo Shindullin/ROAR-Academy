@@ -9,7 +9,7 @@ from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense
 import matplotlib.pyplot as plt
-
+from keras import utils
 batch_size = 128
 num_classes = 10
 epochs = 40
@@ -44,8 +44,8 @@ print(x_train.shape[0], 'train samples')
 print(x_test.shape[0], 'test samples')
 
 # convert class vectors to binary class matrices
-y_train = keras.utils.np_utils.to_categorical(y_train, num_classes)
-y_test = keras.utils.np_utils.to_categorical(y_test, num_classes)
+y_train = utils.to_categorical(y_train, num_classes)
+y_test = utils.to_categorical(y_test, num_classes)
 
 model = Sequential()
 model.add(Dense(800, input_shape=input_shape, activation='relu'))

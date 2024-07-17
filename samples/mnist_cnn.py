@@ -10,7 +10,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 import matplotlib.pyplot as plt
-
+from keras import utils
 batch_size = 128
 num_classes = 10
 epochs = 500
@@ -45,8 +45,8 @@ print(x_train.shape[0], 'train samples')
 print(x_test.shape[0], 'test samples')
 
 # convert class vectors to binary class matrices
-y_train = keras.utils.np_utils.to_categorical(y_train, num_classes)
-y_test = keras.utils.np_utils.to_categorical(y_test, num_classes)
+y_train = utils.to_categorical(y_train, num_classes)
+y_test = utils.to_categorical(y_test, num_classes)
 
 # CNN is created also using Sequential model
 model = Sequential()
